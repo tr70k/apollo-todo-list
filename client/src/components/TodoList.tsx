@@ -63,7 +63,8 @@ const TodoList = ({ search = '' }) => {
   }
 
   const todos = data.todos as Todo[];
-  const filteredTodo = search ? todos.filter(todo => todo.text.includes(search)) : todos;
+  const regex = new RegExp(search, 'i')
+  const filteredTodo = search ? todos.filter(todo => regex.test(todo.text)) : todos;
   const title = search ?
     <>Todo List (found {filteredTodo.length} of {todos.length} todos for "{<b>{search}</b>}"):</> :
     `Todo List (${todos.length}):`;

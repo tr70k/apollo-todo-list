@@ -4,21 +4,21 @@ const { generate } = require('shortid');
 // Construct a schema, using GraphQL schema language
 const typeDefs = `
   type Todo {
-		id: String!
-		text: String!
-		completed: Boolean!
-	}
-	
-  type Query {
-    todos: [Todo]
-		todo(id: String!): Todo
+    id: String!
+    text: String!
+    completed: Boolean!
   }
 
-	type Mutation {
-		addTodo(text: String!): Todo
-		updateTodo(id: String!, completed: Boolean!): Todo
-		deleteTodo(id: String!): Todo
-	}
+  type Query {
+    todos: [Todo]
+    todo(id: String!): Todo
+  }
+
+  type Mutation {
+    addTodo(text: String!): Todo
+    updateTodo(id: String!, completed: Boolean!): Todo
+    deleteTodo(id: String!): Todo
+ }
 `;
 
 const allTodos = new Map();
